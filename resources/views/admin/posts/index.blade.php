@@ -5,29 +5,18 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Title</th>
+      <th scope="col">Creation Date</th>
     </tr>
   </thead>
   <tbody>
+    @foreach ($posts as $post)
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+      <td><a href="{{route('admin.posts.show', $post->id)}}">{{$post->id}}</a></td>
+      <td><a href="{{route('admin.posts.show', $post->id)}}">{{$post->title}}</a></td>
+      <td>{{$post->created_at}}</td>
+    </tr>    
+    @endforeach
   </tbody>
 </table>
 @endsection
